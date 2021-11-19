@@ -53,8 +53,8 @@ registerBlockType( 'cgb/block-develop', {
 			<div className={ props.className }>
 				
 				<h3> TEST OPTION 2 </h3>
-				<h2>Display site's name</h2>
-				<p>— recreate this whole icon box component as UI of your gutenberg block; displaying site's title as a header and sites tagline at the bottom below the 2nd paragraph. the 2nd paragraph should be editable.</p>
+				<h4>Display site's name</h4>
+				<p>recreate this whole icon box component as UI of your gutenberg block; displaying site's title as a header and sites tagline at the bottom below the 2nd paragraph. the 2nd paragraph should be editable.</p>
 				<p>
 					lorem ipsum dolor sit amet, id placerat partiendo sea, corpora prodesset incorrupte has id, cu est disputando ullamcorper. Option mentitum referrentur vel ea. Modo suscipit qui et, quo mutat minim reformidans an, ex dicant dissentiunt neglegentur eam. Autem facer pri ut, in duo ullum
 				</p>
@@ -76,20 +76,20 @@ registerBlockType( 'cgb/block-develop', {
 	 * @param {Object} props Props.
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
-	save: ( props ) => {
-		return (
-			<div className={ props.className }>
-				<h3> TEST OPTION 2 </h3>
-				<h2>Display site's name</h2>
-				<p>— recreate this whole icon box component as UI of your gutenberg block; displaying site's title as a header and sites tagline at the bottom below the 2nd paragraph. the 2nd paragraph should be editable.</p>
-				<p>
-					lorem ipsum dolor sit amet, id placerat partiendo sea, corpora prodesset incorrupte has id, cu est disputando ullamcorper. Option mentitum referrentur vel ea. Modo suscipit qui et, quo mutat minim reformidans an, ex dicant dissentiunt neglegentur eam. Autem facer pri ut, in duo ullum
-				</p>
-				<h6>
-					DISPLAY SITE'S TAGLINE{ ' ' }
-					
-				</h6>
-			</div>
-		);
+
+
+
+
+	save: function (props) {
+		return el(RichText.Content, {
+			tagName: 'p', value: props.attributes.content,
+		});
 	},
-} );
+});
+
+(
+	window.wp.blocks,
+	window.wp.editor,
+	window.wp.element
+ );
+
